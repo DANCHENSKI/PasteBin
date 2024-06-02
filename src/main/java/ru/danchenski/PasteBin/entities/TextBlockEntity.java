@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "text", schema = "pastebin")
+@Table(name = "textblock", schema = "pastebin")
 public class TextBlockEntity {
 
     @Id

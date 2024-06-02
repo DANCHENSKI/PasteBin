@@ -8,6 +8,7 @@ import ru.danchenski.PasteBin.models.TextBlockDTO;
 import ru.danchenski.PasteBin.repositories.TextBlockRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,9 +21,10 @@ public class TextBlockService {
         return textBlockMapper.toTextBlockDTOs(textBlockRepository.findAll());
     }
 
-//    public TextBlockDTO getById(Long id) {
-//        return textBlockMapper.toTextBlockDTO(textBlockRepository.findById(id));
-//    }
+    public TextBlockDTO getById(Long id) {
+        Optional<TextBlockEntity> textBlockEntity = textBlockRepository.findById(id);
+        return textBlockEntity.map(textBlockMapper::toTextBlockDTO).orElse(null);
+    }
 
     public void save(TextBlockDTO textBlockDTO) {
         textBlockRepository.save(textBlockMapper.toTextBlockEntity(textBlockDTO));

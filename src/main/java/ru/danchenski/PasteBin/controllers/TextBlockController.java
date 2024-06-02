@@ -20,10 +20,10 @@ public class TextBlockController {
         return textBlockService.getAll();
     }
 
-//    @GetMapping("/{id}")
-//    public TextBlockDTO getById(@PathVariable Long id) {
-//        return textBlockService.getById(id);
-//    }
+    @GetMapping("/{id}")
+    public TextBlockDTO getById(@PathVariable Long id) {
+        return textBlockService.getById(id);
+    }
 
     @PutMapping("/{id}")
     public void updateById(@RequestBody @Valid TextBlockDTO textBlockDTO, @PathVariable("id") Long id) {
